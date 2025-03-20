@@ -2,6 +2,8 @@ package basics;
 
 import com.microsoft.playwright.*;
 
+import java.util.List;
+
 public class PlaywrightSelectors {
 
     public static void main(String [] args){
@@ -44,6 +46,49 @@ public class PlaywrightSelectors {
         //</form>
 
         page.locator("form input:has-text('Login')").click();
+
+
+        // When an element has another element
+        // E.g. select tag has option tag with country name
+        page.locator("select#Form_submitForm_Country:has(option[value='India'])").click();
+        // parent tag :has child element
+        Locator amazonFooterList = page.locator("div.navFooterLinkCol:has(a[href='https://www.amazon.jobs/])");
+        List<String> getLinks = amazonFooterList.allTextContents();
+        for(String text : getLinks){
+            System.out.println(text);
+        }
+
+
+        // With multiple selectors
+        page.locator("span:has-text('SignIn'), span:has-text('LogIn'), span:has-text('Login')").click();
+        Locator import_items = page.locator("span:has-text('SignIn'), span:has-text('Store'), a:has-text('EXPLORE COURSES')");
+        System.out.println(import_items.count()); // >> Identifies 3 elements
+
+
+
+        // XPATH Union - Here | operator is used to combine 2 expaths.
+        page.locator("//span[text(), 'SignIn'] | //span[text(), 'LogIn']").click();
+
+
+        // Relative CSS Selector
+        // www.selectorshub.com/xpath-practice-page/
+        page.locator("input[type='checkbox']:left-of(:text['Joe.Root']))").first().click();
+        String username = "Jasmine.Morgan";
+        page.locator("input[type='checkbox']:left-of(:text['"+username+"']))").first().click();
+        page.locator("td:right-of(:text('Joe.Root'))").textContent();
+        page.locator("a:above(:text('Joe.Root')").first().textContent();
+        page.locator("a:below(:text('Joe.Root')").first().textContent();
+        Locator tds = page.locator("td:near(:text('Joe.Root'), 400"); // 400 is pixels
+        List<String> getAlltds = tds.allInnerTexts();
+
+        page.locator("input:below(label:text('Full Name')").first().fill("Ana");
+        page.locator("input:below(label:text('Email')").first().fill("Ana.de.aramas@gmail.com");
+        page.locator("input:below(label:text('Phone number')").first().fill("9988776655");
+
+        page.locator("input:near(:text('Newsletter')").first().fill("Ana.de.aramas@gmail.com");
+
+        page.locator("span.price.product-price:below(:text('Faded short sleeve T-shirts'))").first().innerText().trim();
+
 
     }
 }
