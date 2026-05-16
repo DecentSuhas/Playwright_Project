@@ -1,4 +1,4 @@
-package basics;
+package refer;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
