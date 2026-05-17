@@ -3,6 +3,8 @@ package pages;
 import base.BaseTest;
 import com.microsoft.playwright.Page;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class ProductPage extends BaseTest {
 
     private Page page;
@@ -11,8 +13,13 @@ public class ProductPage extends BaseTest {
 
 
 
-    public void ProductPage(Page page){
+    public ProductPage(Page page){
         this.page = page;
+    }
+
+    public void verifyPageTitle(){
+        String pageTitle = page.title();
+        assertThat(page).hasTitle("Sauce");
     }
 
 
