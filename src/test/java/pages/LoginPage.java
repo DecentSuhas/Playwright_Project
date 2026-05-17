@@ -1,34 +1,39 @@
 package pages;
-
 import com.microsoft.playwright.Page;
+import org.testng.Assert;
+import utils.BaseMethods;
 
-public class LoginPage {
+public class LoginPage extends BaseMethods {
 
-    private Page page;
     private final String usernameField = "input[id=\"user-name\"]";
     private final String passwordField = "input[id=\"password\"]";
     private final String loginButton = "input[type=\"submit\"]";
+    private final String errorMessage = "[data-test=\"error\"]";
 
-    public LoginPage(Page page){
-        this.page=page;
+    public LoginPage(Page page) {
+        super(page);
     }
 
     public void enterUsername(String username){
-        page.fill(usernameField, username);
+        enterTextToInput(usernameField, username);
     }
 
     public void enterPassword(String password){
-        page.fill(passwordField, password);
+        enterTextToInput(passwordField, password);
     }
 
     public void clickLoginButton(){
-        page.click(loginButton);
+        clickElement(loginButton);
     }
 
     public void login(String username, String password){
         enterUsername(username);
         enterPassword(password);
         clickLoginButton();
+    }
 
+    public void verifyErrorMessage(){
+        String text = getElementText(errorMessage);
+        Assert.assertEquals(text, "Epic sadface: Username and password do not match any user in this service");
     }
 }

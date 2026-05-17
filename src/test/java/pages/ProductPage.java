@@ -1,25 +1,23 @@
 package pages;
 
-import base.BaseTest;
 import com.microsoft.playwright.Page;
+import org.testng.Assert;
+import utils.BaseMethods;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class ProductPage extends BaseTest {
+public class ProductPage extends BaseMethods {
 
-    private Page page;
-    private String addToCart = "[data-test=\"add-to-cart-sauce-labs-backpack\"]";
-    private String shoppingCart = "[data-test=\\\"shopping-cart-link\\\"]";
+    private final String addToCart = "[data-test=\"add-to-cart-sauce-labs-backpack\"]";
+    private final String shoppingCart = "[data-test=\\\"shopping-cart-link\\\"]";
 
-
-
-    public ProductPage(Page page){
-        this.page = page;
+    public ProductPage(Page page) {
+        super(page);
     }
 
     public void verifyPageTitle(){
-        String pageTitle = page.title();
-        assertThat(page).hasTitle("Sauce");
+        String title = getPageTitle();
+        Assert.assertEquals(title, "Sauce Labs");
     }
 
 

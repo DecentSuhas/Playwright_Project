@@ -1,15 +1,20 @@
 package pages;
 
-import base.BaseTest;
-import com.microsoft.playwright.Page;
 
-public class CartPage extends BaseTest {
+import com.microsoft.playwright.Page;
+import utils.BaseMethods;
+
+public class CartPage extends BaseMethods {
 
     private Page page;
     private String checkOut = "[data-test=\"checkout\"]";
 
-    public void CartPage(Page page){
-        this.page = page;
+    public CartPage(Page page) {
+        super(page);
+    }
 
+    public void clickCheckOut(){
+        clickElement(checkOut);
     }
 }
+
