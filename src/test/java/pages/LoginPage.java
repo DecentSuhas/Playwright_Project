@@ -3,27 +3,28 @@ import com.microsoft.playwright.Page;
 import org.testng.Assert;
 import utils.BaseMethods;
 
-public class LoginPage extends BaseMethods {
+public class LoginPage {
 
+    private BaseMethods baseMethods;
     private final String usernameField = "input[id=\"user-name\"]";
     private final String passwordField = "input[id=\"password\"]";
     private final String loginButton = "input[type=\"submit\"]";
     private final String errorMessage = "[data-test=\"error\"]";
 
-    public LoginPage(Page page) {
-        super(page);
+    public LoginPage(Page page){
+        baseMethods = new BaseMethods(page);
     }
 
     public void enterUsername(String username){
-        enterTextToInput(usernameField, username);
+        baseMethods.enterTextToInput(usernameField, username);
     }
 
     public void enterPassword(String password){
-        enterTextToInput(passwordField, password);
+        baseMethods.enterTextToInput(passwordField, password);
     }
 
     public void clickLoginButton(){
-        clickElement(loginButton);
+        baseMethods.clickElement(loginButton);
     }
 
     public void login(String username, String password){
@@ -33,7 +34,7 @@ public class LoginPage extends BaseMethods {
     }
 
     public void verifyErrorMessage(){
-        String text = getElementText(errorMessage);
-        Assert.assertEquals(text, "Epic sadface: Username and password do not match any user in this service");
+        String text = baseMethods.getElementText(errorMessage);
+        Assert.assertEquals(text, "teste");
     }
 }

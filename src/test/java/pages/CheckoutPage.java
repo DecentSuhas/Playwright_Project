@@ -2,8 +2,9 @@ package pages;
 import com.microsoft.playwright.Page;
 import utils.BaseMethods;
 
-public class CheckoutPage extends BaseMethods {
+public class CheckoutPage {
 
+    private BaseMethods baseMethods;
     private final String firstNameField = "[data-test=\"firstName\"]";
     private final String lastNameField = "[data-test=\"lastName\"]";
     private final String postalCodeField = "[data-test=\"postalCode\"]";
@@ -11,32 +12,32 @@ public class CheckoutPage extends BaseMethods {
     private final String finishButton = "[data-test=\"Finish\"]";
     private final String successMessage = "[data-test=\"complete-header\"]";
 
-    public CheckoutPage(Page page) {
-        super(page);
+    public CheckoutPage(Page page){
+        baseMethods = new BaseMethods(page);
     }
 
     public void enterFirstName(String firstName){
-        enterTextToInput(firstNameField, firstName );
+        baseMethods.enterTextToInput(firstNameField, firstName );
     }
 
     public void enterLastName(String lastName){
-        enterTextToInput(lastNameField, lastName);
+        baseMethods.enterTextToInput(lastNameField, lastName);
     }
 
     public void enterPostalCode(String postalCode){
-        enterTextToInput(postalCodeField, postalCode);
+        baseMethods.enterTextToInput(postalCodeField, postalCode);
     }
 
     public void clickContinueButton(){
-        clickElement(continueButton);
+        baseMethods.clickElement(continueButton);
     }
 
     public void clickFinishButton(){
-        clickElement(finishButton);
+        baseMethods.clickElement(finishButton);
     }
 
     public void clickSuccessButton(){
-        clickElement(successMessage);
+        baseMethods.clickElement(successMessage);
     }
 
     public void enterCustomerDetails(String firstName, String lastName, String postalCode){

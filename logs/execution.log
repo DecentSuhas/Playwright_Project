@@ -1,0 +1,22 @@
+2026-05-18 18:42:19
+                [main]
+                INFO 
+                org.testng.internal.Utils -
+                [TestNG] Running:
+  C:\Users\Lenovo1\AppData\Local\JetBrains\IdeaIC2024.1\temp-testng-customsuite.xml
+
+2026-05-18 18:42:29
+                [main]
+                INFO 
+                utils.BaseMethods -
+                Entered text 'standard_user' into element 'input[id="user-name"]'
+2026-05-18 18:42:29
+                [main]
+                INFO 
+                utils.BaseMethods -
+                Entered text 'secret_sauce124' into element 'input[id="password"]'
+2026-05-18 18:42:29
+                [main]
+                INFO 
+                utils.BaseMethods -
+                Clicked element: input[type="submit"]

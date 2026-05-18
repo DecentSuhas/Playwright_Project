@@ -4,17 +4,18 @@ package pages;
 import com.microsoft.playwright.Page;
 import utils.BaseMethods;
 
-public class CartPage extends BaseMethods {
+public class CartPage  {
 
-    private Page page;
+    private BaseMethods baseMethods;
+
     private String checkOut = "[data-test=\"checkout\"]";
 
-    public CartPage(Page page) {
-        super(page);
+    public CartPage(Page page){
+        baseMethods = new BaseMethods(page);
     }
 
     public void clickCheckOut(){
-        clickElement(checkOut);
+        baseMethods.clickElement(checkOut);
     }
 }
 

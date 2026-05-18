@@ -1,7 +1,19 @@
 <suite name="PlaywrightSuite">
-    <test name="BasicTests">
+
+    <listeners>
+
+        <listener class-name="listeners.TestListener"/>
+
+    </listeners>
+
+    <test name="RegressionTests">
+
         <classes>
-            <class name="tests.FirstScript"/>
+
+            <class name="tests.LoginPageTests"/>
+
         </classes>
+
     </test>
+
 </suite>

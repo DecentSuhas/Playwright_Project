@@ -9,7 +9,7 @@ public class ExtentManager {
 
     public static ExtentReports getInstance(){
         if(extentReports == null){
-            ExtentSparkReporter reporter = new ExtentSparkReporter("test-output/ExtentReport.html");
+            ExtentSparkReporter reporter = new ExtentSparkReporter("reports/extentReport.html");
             extentReports = new ExtentReports();
             extentReports.attachReporter(reporter);
         }
