@@ -3,33 +3,24 @@ package utils;
 import com.microsoft.playwright.Page;
 import factory.BrowserFactory;
 
-import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Base64;
 
 public class ScreenshotUtil {
 
-    public static String captureScreenshot(String screenshotName) {
+
+    public static String captureScreenshot() {
 
         Page page = BrowserFactory.getPage();
 
-        String timeStamp =
-                new SimpleDateFormat(
-                        "yyyyMMdd_HHmmss")
-                        .format(new Date());
+        byte[] screenshotBytes =
+                page.screenshot(
+                        new Page.ScreenshotOptions()
+                                .setFullPage(true));
 
-        String path =
-                "screenshots/"
-                        + screenshotName
-                        + "_"
-                        + timeStamp
-                        + ".png";
-
-        page.screenshot(
-                new Page.ScreenshotOptions()
-                        .setPath(Paths.get(path))
-                        .setFullPage(true));
-
-        return path;
+        return Base64.getEncoder()
+                .encodeToString(screenshotBytes);
     }
+
+
+
 }

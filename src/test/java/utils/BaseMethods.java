@@ -24,7 +24,7 @@ public class BaseMethods {
             logger.info("Clicked element: {}", webElement);
 
         } catch (Exception e) {
-            String screenshotPath = ScreenshotUtil.captureScreenshot( "click_failure");
+            String screenshotPath = ScreenshotUtil.captureScreenshot();
             logger.error("Failed to click element: {}", webElement);
             logger.error( "Screenshot captured at: {}", screenshotPath);
             throw new RuntimeException(e);

@@ -18,7 +18,7 @@ public class ProductPage {
 
     public void verifyPageTitle(){
         String title = baseMethods.getPageTitle();
-        Assert.assertEquals(title, "Sauce Labs");
+        Assert.assertEquals(title, "Swag Labs");
     }
 
 

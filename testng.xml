@@ -1,19 +1,15 @@
-<suite name="PlaywrightSuite">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
+<suite name="PlaywrightSuite"
+       parallel="tests"
+       thread-count="1">
     <listeners>
-
         <listener class-name="listeners.TestListener"/>
-
     </listeners>
-
-    <test name="RegressionTests">
-
+    <test name="ChromeTest1">
         <classes>
-
             <class name="tests.LoginPageTests"/>
-
         </classes>
-
     </test>
-
 </suite>
+

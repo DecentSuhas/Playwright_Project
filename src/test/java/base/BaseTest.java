@@ -26,7 +26,7 @@ public class BaseTest {
         page = BrowserFactory.getPage();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result){
         if(browser!=null) browser.close();
         if(playwright!=null) playwright.close();
