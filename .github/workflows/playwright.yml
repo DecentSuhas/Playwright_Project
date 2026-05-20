@@ -1,0 +1,55 @@
+
+  name: Playwright Automation
+
+  on:
+    push:
+      branches:
+        - main
+
+    pull_request:
+      branches:
+        - main
+
+  jobs:
+
+    test:
+
+      runs-on: ubuntu-latest
+
+      steps:
+
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+
+        - name: Set up Java
+          uses: actions/setup-java@v4
+          with:
+            distribution: 'temurin'
+            java-version: '22'
+
+
+        - name: Install Dependencies
+          run: mvn clean install -DskipTests
+
+
+        - name: Install Playwright Browsers
+          run: mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+
+
+        - name: Run Tests
+          run: mvn test
+
+
+        - name: Upload Extent Report
+          uses: actions/upload-artifact@v4
+          with:
+            name: extent-report
+            path: reports/
+
+
+        - name: Upload Logs
+          uses: actions/upload-artifact@v4
+          with:
+            name: logs
+            path: logs/
