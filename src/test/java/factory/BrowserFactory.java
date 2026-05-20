@@ -9,6 +9,8 @@ public class BrowserFactory {
 
     private static ThreadLocal<Browser> browserThreadLocal = new ThreadLocal<>();
 
+    private static ThreadLocal<BrowserContext> contextThreadLocal = new ThreadLocal<>();
+
     private static ThreadLocal<Page> pageThreadLocal = new ThreadLocal<>();
 
 
@@ -56,12 +58,21 @@ public class BrowserFactory {
 
         browserThreadLocal.set(browser);
 
-        Page page = browser.newPage();
+        BrowserContext context = browser.newContext();
+        contextThreadLocal.set(context);
+
+        Page page = context.newPage();
 
         page.navigate(ConfigReader.getProperty("base.url"));
 
         pageThreadLocal.set(page);
     }
+
+    public static BrowserContext getContext(){
+
+        return contextThreadLocal.get();
+    }
+
 
 
     public static Page getPage() {
@@ -80,6 +91,17 @@ public class BrowserFactory {
 
 
     public static void tearDown() {
+        if(getPage() != null)
+            getPage().close();
+
+        if(getContext() != null)
+            getContext().close();
+
+        if(getBrowser() != null)
+            getBrowser().close();
+
+        if(getPlaywright() != null)
+            getPlaywright().close();
 
         if (pageThreadLocal.get() != null) {
             pageThreadLocal.get().close();
