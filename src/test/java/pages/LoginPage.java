@@ -35,6 +35,6 @@ public class LoginPage {
 
     public void verifyErrorMessage(){
         String text = baseMethods.getElementText(errorMessage);
-        Assert.assertEquals(text, "teste");
+        Assert.assertEquals(text, "Epic sadface: Username and password do not match any user in this service");
     }
 }
