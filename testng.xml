@@ -3,7 +3,7 @@
 <suite name="PlaywrightSuite"
        parallel="tests"
        thread-count="1">
-
+    <parameter name="env" value="qa"/>
     <listeners>
         <listener class-name="listeners.TestListener"/>
     </listeners>

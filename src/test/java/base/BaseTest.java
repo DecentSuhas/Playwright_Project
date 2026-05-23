@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import config.ConfigReader;
 import factory.BrowserFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -22,11 +23,12 @@ public class BaseTest {
     protected ExtentReports extentReports;
     protected ExtentTest extentTest;
 
-    @Parameters({"browser"})
+    @Parameters({"browser", "env"})
 
     @BeforeMethod
-    public void setup(@Optional String browser){
+    public void setup(@Optional String browser, String env){
 
+        ConfigReader.loadProperties(env);
         BrowserFactory.initBrowser(browser);
 
         page = BrowserFactory.getPage();

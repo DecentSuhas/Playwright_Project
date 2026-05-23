@@ -1,8 +1,1 @@
 base\BaseTest.class
-refer\CreateElements.class
-refer\Frames_iFrames.class
-refer\PlaywrightBrowserContext.class
-refer\PlaywrightSelectors.class
-refer\ShadowDOM.class
-refer\PlaywrightBasics.class
-tests\FirstScript.class
