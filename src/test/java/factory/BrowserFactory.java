@@ -14,11 +14,13 @@ public class BrowserFactory {
     private static ThreadLocal<Page> pageThreadLocal = new ThreadLocal<>();
 
 
-    public static void initBrowser() {
+    public static void initBrowser(String browserName) {
+
+        if(browserName == null || browserName.isEmpty()) {
+            browserName =ConfigReader.getProperty("browser");
+        }
 
         playwrightThreadLocal.set(Playwright.create());
-
-        String browserName = ConfigReader.getProperty("browser");
 
         boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
 
