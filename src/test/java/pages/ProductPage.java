@@ -21,7 +21,6 @@ public class ProductPage {
     }
 
     public void verifyPageTitle(){
-        String title = baseMethods.getPageTitle();
         assertionUtils.verifyTitle("Swag Labs");
     }
 
