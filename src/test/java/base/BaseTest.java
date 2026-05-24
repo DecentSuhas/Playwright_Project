@@ -12,9 +12,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-
-import java.lang.reflect.Method;
-
 public class BaseTest {
 
     protected Playwright playwright;
@@ -23,17 +20,16 @@ public class BaseTest {
     protected ExtentReports extentReports;
     protected ExtentTest extentTest;
 
-    @Parameters({"browser", "env"})
+    @Parameters({"browser", "env", "execution"})
 
     @BeforeMethod
-    public void setup(@Optional String browser, String env){
+    public void setup(@Optional String browser, String env, String execution){
 
         ConfigReader.loadProperties(env);
-        BrowserFactory.initBrowser(browser);
+        BrowserFactory.initBrowser(browser, execution);
 
         page = BrowserFactory.getPage();
     }
-
 
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result){

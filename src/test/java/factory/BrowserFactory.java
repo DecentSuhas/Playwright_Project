@@ -14,7 +14,7 @@ public class BrowserFactory {
     private static ThreadLocal<Page> pageThreadLocal = new ThreadLocal<>();
 
 
-    public static void initBrowser(String browserName) {
+    public static void initBrowser(String browserName, String execution     ) {
 
         if(browserName == null || browserName.isEmpty()) {
             browserName =ConfigReader.getProperty("browser");
@@ -32,30 +32,37 @@ public class BrowserFactory {
 
         Browser browser;
 
-        switch (browserName.toLowerCase()) {
+        if(execution.equalsIgnoreCase(
+                "browserstack")) {
 
-            case "firefox":
+            browser = BrowserStackFactory.connectBrowserStack(playwrightThreadLocal.get());
 
-                browser = playwrightThreadLocal.get()
-                        .firefox()
-                        .launch(options);
-                break;
+        } else {
 
-            case "webkit":
+            switch (browserName.toLowerCase()) {
+                case "firefox":
+                    browser =
+                            playwrightThreadLocal.get()
+                                    .firefox()
+                                    .launch(options);
+                    break;
 
-                browser = playwrightThreadLocal.get()
-                        .webkit()
-                        .launch(options);
-                break;
+                case "webkit":
+                    browser =
+                            playwrightThreadLocal.get()
+                                    .webkit()
+                                    .launch(options);
+                    break;
 
-            case "chromium":
+                case "chromium":
 
-            default:
-
-                browser = playwrightThreadLocal.get()
-                        .chromium()
-                        .launch(options);
-                break;
+                default:
+                    browser =
+                            playwrightThreadLocal.get()
+                                    .chromium()
+                                    .launch(options);
+                    break;
+            }
         }
 
         browserThreadLocal.set(browser);

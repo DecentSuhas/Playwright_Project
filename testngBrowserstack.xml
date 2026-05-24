@@ -5,7 +5,8 @@
        thread-count="1">
     <parameter name="env" value="qa"/>
     <parameter name="browser" value="chromium"/>
-    <parameter name="execution" value="local"/>
+    <parameter name="execution" value="browserstack"/>
+
     <listeners>
         <listener class-name="listeners.TestListener"/>
     </listeners>
