@@ -5,3 +5,17 @@
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 *.class
+
+/target/
+/reports/
+/logs/
+/test-output/
+
+*.log
+*.zip
+*.tar
+
+.idea/
+*.iml
+
+.env

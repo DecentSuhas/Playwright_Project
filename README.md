@@ -50,15 +50,45 @@ The project demonstrates real-world automation framework design practices rather
 
 ---
 
-## Reporting
+# Reporting
 
-* Extent Reports integration
-* Failure screenshots
-* Base64 screenshot embedding
-* Execution logging using Logback
+Extent Reports are generated after execution with screenshot support.
+
+Features:
+- Pass/Fail summary
+- Embedded screenshots
+- Execution timeline
+- Failure stack traces
 
 ![ExtentReport.png](screenshots%2FExtentReport.png)
 
+---
+
+# CI/CD Integration
+
+Framework execution is integrated with GitHub Actions.
+
+Features:
+- Automated execution on push
+- Maven dependency management
+- Playwright browser installation
+- Artifact publishing
+
+![GithubActions.png](screenshots%2FGithubActions.png)
+
+---
+
+# Cloud Execution
+
+Framework supports BrowserStack cloud execution.
+
+Features:
+- Remote browser execution
+- Distributed execution support
+- Cloud-based browser infrastructure
+- Cross-platform execution capability
+
+![BrowserstackExecution.png](screenshots%2FBrowserstackExecution.png)
 
 ---
 
@@ -90,6 +120,8 @@ The project demonstrates real-world automation framework design practices rather
 * Browser/runtime isolation
 
 ---
+
+
 
 # Project Structure
 
