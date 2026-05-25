@@ -9,24 +9,27 @@
     </listeners>
 
     <test name="ChromiumTests">
-        <parameter name="browser"
-                   value="chromium"/>
+        <parameter name="env" value="qa"/>
+        <parameter name="execution" value="local"/>
+        <parameter name="browser" value="chromium"/>
         <classes>
             <class name="tests.LoginPageTests"/>
         </classes>
     </test>
 
     <test name="FirefoxTests">
-        <parameter name="browser"
-                   value="firefox"/>
+        <parameter name="env" value="qa"/>
+        <parameter name="execution" value="local"/>
+        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="tests.LoginPageTests"/>
         </classes>
     </test>
 
     <test name="WebkitTests">
-        <parameter name="browser"
-                   value="webkit"/>
+        <parameter name="env" value="qa"/>
+        <parameter name="execution" value="local"/>
+        <parameter name="browser" value="webkit"/>
         <classes>
             <class name="tests.LoginPageTests"/>
         </classes>

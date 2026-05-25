@@ -57,6 +57,9 @@ The project demonstrates real-world automation framework design practices rather
 * Base64 screenshot embedding
 * Execution logging using Logback
 
+![ExtentReport.png](screenshots%2FExtentReport.png)
+
+
 ---
 
 ## Retry Mechanism
@@ -152,15 +155,15 @@ Each application page is separated into dedicated page classes to improve:
 
 ## Run Using TestNG XML
 
-```bash id="3qk4v0"
+
 mvn test
-```
+
 
 Execution is controlled using:
 
-```text id="59d2v9"
+
 testng.xml
-```
+
 
 ---
 
@@ -180,17 +183,17 @@ Supported browsers:
 
 ## Build Docker Image
 
-```bash id="tj8j7t"
+
 docker build -t playwright-framework .
-```
+
 
 ---
 
 ## Run Docker Container
 
-```bash id="tkt9es"
+
 docker run playwright-framework
-```
+
 
 ---
 
@@ -225,9 +228,9 @@ Test data is maintained using JSON files.
 
 Example:
 
-```text id="x3ks97"
+
 src/test/resources/testdata
-```
+
 
 TestNG DataProviders are used to inject test data into test cases.
 
@@ -244,19 +247,6 @@ TestNG DataProviders are used to inject test data into test cases.
 * Logging
 * Environment management
 * Thread-safe architecture
-
----
-
-# Future Enhancements
-
-Planned improvements:
-
-* GitHub Actions CI integration
-* Cloud execution support
-* API + UI hybrid execution
-* Allure reporting
-* Database validation support
-* Unified mobile/web automation support
 
 ---
 
