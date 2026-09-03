@@ -2,9 +2,7 @@
 
 ## Step 1 - Execute testng.xml
 
-
 testng.xml
-
 
 Defines:
 
@@ -19,7 +17,6 @@ Defines:
 
 @BeforeMethod
 
-
 Runs before every test method.
 
 Responsible for:
@@ -29,7 +26,6 @@ Responsible for:
 * creating page object
 
 Flow:
-
 
 testng.xml
       ↓
@@ -42,7 +38,6 @@ BaseTest.setup()
 
 BrowserFactory decides where test should run.
 
-
 execution=local
       ↓
 Local Browser
@@ -54,7 +49,6 @@ BrowserStack Cloud Browser
 
 Flow:
 
-
 BaseTest
       ↓
 BrowserFactory
@@ -64,7 +58,6 @@ BrowserFactory
 ## Step 4 - Playwright Objects Creation
 
 BrowserFactory creates:
-
 
 Playwright
       ↓
@@ -83,7 +76,6 @@ Stores them in ThreadLocal for parallel execution.
 
 Example:
 
-
 LoginPageTests
       ↓
 LoginPage
@@ -98,7 +90,6 @@ Page interactions belong to Page Objects.
 ## Step 6 - Page Object Layer
 
 Example:
-
 
 LoginPage
       ↓
@@ -122,7 +113,6 @@ DataProvider
       ↓
 Test Method
 
-
 Test data remains separate from test code.
 
 ---
@@ -130,7 +120,6 @@ Test data remains separate from test code.
 ## Step 8 - API + UI Hybrid Flow
 
 Flow:
-
 
 APIClient
       ↓
@@ -140,7 +129,6 @@ Response
       ↓
 UI Validation
 
-
 Used when data setup is faster through APIs.
 
 ---
@@ -148,7 +136,6 @@ Used when data setup is faster through APIs.
 ## Step 9 - Reporting
 
 Listener captures execution result.
-
 
 Test Pass
       ↓
@@ -164,19 +151,15 @@ Extent Report
 
 ## Step 10 - Teardown
 
-
 @AfterMethod
 
-
 Closes:
-
 
 Page
       ↓
 Browser
       ↓
 Playwright
-
 
 Executed after every test method.
 
@@ -205,7 +188,6 @@ Listeners
       ↓
 Extent Report
 
-
 ---
 
 # Supported Execution Modes
@@ -218,6 +200,3 @@ Docker Execution
 GitHub Actions CI/CD
 
 BrowserStack Cloud Execution
-
-
-
