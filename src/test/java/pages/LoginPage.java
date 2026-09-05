@@ -38,7 +38,6 @@ public class LoginPage {
     }
 
     public void verifyErrorMessage(){
-        String text = baseMethods.getElementText(errorMessage);
-        assertionUtils.verifyText(text,"Epic sadface: Username and password do not match any user in this service" );
+        assertionUtils.verifyText(errorMessage,"Epic sadface: Username and password do not match any user in this service" );
     }
 }
