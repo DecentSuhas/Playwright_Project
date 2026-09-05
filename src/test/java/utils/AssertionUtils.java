@@ -15,7 +15,6 @@ public class AssertionUtils {
     public void verifyText(String locator, String expectedText){
 
         String actualText = page.locator(locator).innerText();
-
         Assert.assertEquals(actualText, expectedText, "Text mismatch");
     }
 

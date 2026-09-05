@@ -21,13 +21,11 @@ public class BaseTest {
     protected ExtentTest extentTest;
 
     @Parameters({"browser", "env", "execution"})
-
     @BeforeMethod
     public void setup(@Optional String browser, String env, String execution){
 
         ConfigReader.loadProperties(env);
         BrowserFactory.initBrowser(browser, execution);
-
         page = BrowserFactory.getPage();
     }
 

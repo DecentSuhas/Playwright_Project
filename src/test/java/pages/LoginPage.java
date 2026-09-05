@@ -1,6 +1,7 @@
 package pages;
 import com.microsoft.playwright.Page;
 import org.testng.Assert;
+import utils.AssertionUtils;
 import utils.BaseMethods;
 
 public class LoginPage {
@@ -10,9 +11,12 @@ public class LoginPage {
     private final String passwordField = "input[id=\"password\"]";
     private final String loginButton = "input[type=\"submit\"]";
     private final String errorMessage = "[data-test=\"error\"]";
+    AssertionUtils assertionUtils;
 
     public LoginPage(Page page){
         baseMethods = new BaseMethods(page);
+        assertionUtils = new AssertionUtils(page);
+
     }
 
     public void enterUsername(String username){
@@ -35,6 +39,6 @@ public class LoginPage {
 
     public void verifyErrorMessage(){
         String text = baseMethods.getElementText(errorMessage);
-        Assert.assertEquals(text, "Epic sadface: Username and password do not match any user in this service");
+        assertionUtils.verifyText(text,"Epic sadface: Username and password do not match any user in this service" );
     }
 }

@@ -2,7 +2,7 @@
 
 <suite name="CrossBrowserSuite"
        parallel="tests"
-       thread-count="3">
+       thread-count="1">
 
     <listeners>
         <listener class-name="listeners.TestListener"/>

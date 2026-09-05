@@ -112,16 +112,9 @@ public class BrowserFactory {
         if(getPlaywright() != null)
             getPlaywright().close();
 
-        if (pageThreadLocal.get() != null) {
-            pageThreadLocal.get().close();
-        }
-
-        if (browserThreadLocal.get() != null) {
-            browserThreadLocal.get().close();
-        }
-
-        if (playwrightThreadLocal.get() != null) {
-            playwrightThreadLocal.get().close();
-        }
+        pageThreadLocal.remove();
+        contextThreadLocal.remove();
+        browserThreadLocal.remove();
+        playwrightThreadLocal.remove();
     }
 }

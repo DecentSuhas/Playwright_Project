@@ -6,8 +6,7 @@ public class ConfigReader {
 
     private static Properties properties;
 
-    public static void loadProperties(
-            String env){
+    public static void loadProperties(String env){
 
         try {
 
